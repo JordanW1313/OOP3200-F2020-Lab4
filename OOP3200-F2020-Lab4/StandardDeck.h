@@ -27,27 +27,34 @@ public:
 	StandardDeck() 
 	{
 		size = 0;
-		Initialiaze(size);
+		Initialiaze();
 	}
 
 	// Rule of three:
-	//~StandardDeck() { delete[] myCardsArray; } // destructor
+	~StandardDeck() { delete[] myCardsVector; } // destructor
 	StandardDeck(const StandardDeck& source); // copy constructor
-	StandardDeck& operator=(const StandardDeck& source); // assignment operator
+	StandardDeck& operator=(StandardDeck& source); // assignment operator
 
 	// Accessors:
 	void CardString();
 
 	void CardsRemaining();
 
+	void DeckToString();
+
 	// Mutators:
-	void Initialiaze(PlayingCard* card);
+	void Initialiaze(/*PlayingCard* card*/);
 
 	void DrawNextCard();
 
+	void DrawRandomCard();
+
+	void SetVector(std::vector<PlayingCard> vector);
+
 private:
-	std::vector<PlayingCard> myCardsArray[1];
-	PlayingCard *size;
+	std::vector<PlayingCard> myCardsVector[1];
+	//PlayingCard *size;
+	int size;
 };
 
 #endif /* defined (__STANDARD_DECK__) */

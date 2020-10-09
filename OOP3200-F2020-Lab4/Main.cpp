@@ -15,21 +15,23 @@ int main()
 	// create a deck
 	StandardDeck newDeck;
 
-	newDeck.CardsRemaining();
-
-	newDeck.DrawNextCard();
-
-	newDeck.CardsRemaining();
-
-	newDeck.DrawNextCard();
-
-	newDeck.CardsRemaining();
-
-	newDeck.DrawNextCard();
-
-	newDeck.CardsRemaining();
-
 	// Show the deck object as initialized
+	newDeck.DeckToString();
+
+	newDeck.DrawNextCard();
+	newDeck.DrawNextCard();
+	newDeck.DrawNextCard();
+
+	newDeck.CardsRemaining();
+
+	Pause();
+
+	StandardDeck deck2;
+
+	deck2 = newDeck;
+
+	deck2.CardsRemaining();
+
 	Pause();
 	
 	// Draw the next card and show it
