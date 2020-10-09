@@ -14,8 +14,20 @@ int main()
 
 	// create a deck
 	StandardDeck newDeck;
-	
-	std::cout << 
+
+	newDeck.CardsRemaining();
+
+	newDeck.DrawNextCard();
+
+	newDeck.CardsRemaining();
+
+	newDeck.DrawNextCard();
+
+	newDeck.CardsRemaining();
+
+	newDeck.DrawNextCard();
+
+	newDeck.CardsRemaining();
 
 	// Show the deck object as initialized
 	Pause();

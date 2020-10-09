@@ -31,18 +31,22 @@ public:
 	}
 
 	// Rule of three:
-	~StandardDeck() { delete[] myCardsArray; } // destructor
+	//~StandardDeck() { delete[] myCardsArray; } // destructor
 	StandardDeck(const StandardDeck& source); // copy constructor
 	StandardDeck& operator=(const StandardDeck& source); // assignment operator
 
 	// Accessors:
 	void CardString();
 
+	void CardsRemaining();
+
 	// Mutators:
 	void Initialiaze(PlayingCard* card);
 
+	void DrawNextCard();
+
 private:
-	std::vector<PlayingCard> myCardsArray[52];
+	std::vector<PlayingCard> myCardsArray[1];
 	PlayingCard *size;
 };
 
