@@ -24,15 +24,17 @@ int main()
 
 	newDeck.CardsRemaining();
 
-	Pause();
+	newDeck.Shuffle();
+	//newDeck.DeckToString();
+	//Pause();
 
-	StandardDeck deck2;
+	//StandardDeck deck2;
 
-	deck2 = newDeck;
+	//deck2 = newDeck;
 
-	deck2.CardsRemaining();
+	//deck2.CardsRemaining();
 
-	Pause();
+	//Pause();
 	
 	// Draw the next card and show it
 

@@ -23,12 +23,7 @@ class StandardDeck
 {
 public:
 
-	// Initialization:
-	StandardDeck() 
-	{
-		size = 0;
-		Initialiaze();
-	}
+	StandardDeck(); // Default constructor
 
 	// Rule of three:
 	~StandardDeck() { delete[] myCardsVector; } // destructor
@@ -38,16 +33,18 @@ public:
 	// Accessors:
 	void CardString();
 
-	void CardsRemaining();
+	void CardsRemaining() const;
 
 	void DeckToString();
 
 	// Mutators:
-	void Initialiaze(/*PlayingCard* card*/);
+	void Initialize(/*PlayingCard* card*/);
 
 	void DrawNextCard();
 
 	void DrawRandomCard();
+
+	void Shuffle();
 
 	void SetVector(std::vector<PlayingCard> vector);
 
