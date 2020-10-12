@@ -51,7 +51,7 @@ public:
 private:
 	std::vector<PlayingCard> myCardsVector[1];
 	//PlayingCard *size;
-	int size;
+	PlayingCard* size;
 };
 
 #endif /* defined (__STANDARD_DECK__) */

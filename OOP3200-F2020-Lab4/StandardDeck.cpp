@@ -59,7 +59,7 @@ void StandardDeck::DeckToString()
 	for (int i = 0; i < deckSize;)
 	{
 		int loopCheck = i + 4;
-		if ((loopCheck) > deckSize)
+		if (loopCheck > deckSize)
 		{
 			std::cout << std::left << std::setw(8) << myCardsVector[0][i].GetRank() << " " << myCardsVector[0][i].GetSuit() << "(" << i + 1 << ")" << "	";
 			i++;
@@ -81,13 +81,14 @@ void StandardDeck::DeckToString()
 // Method sets/resets the deck to 52 standard playing cards.
 void StandardDeck::Initialize()
 {
+	int numOfCards = 52;
 	// Check if any memory has already been allocated for the playing cards.
 	if (size != 0)
 	{
 		myCardsVector[0].clear(); // Delete memory allocations.
 	}
 
-	size = 52; // Set size to number of standard playing cards.
+	size = new PlayingCard[numOfCards]; // Set size to number of playing cards.
 
 	// Builds 52 playing cards, each having a unique suit and rank combination.
 	for (int suit = 0; suit < 4; suit++)
@@ -111,7 +112,7 @@ void StandardDeck::DrawNextCard()
 
 	assert(!myCardsVector[0].empty());
 	myCardsVector[0].erase(myCardsVector[0].begin());
-	size = currentSize - 1;
+	size = new PlayingCard[currentSize - 1];
 }
 
 // Removes a random object from the array, and shifts the indices of the following objects by 1 to the left.
@@ -124,7 +125,7 @@ void StandardDeck::DrawRandomCard()
 	std::cout << "The random card is the " << myCardsVector[0][randNum].GetRank() << " of " << myCardsVector[0][randNum].GetSuit() << "." << std::endl;
 
 	myCardsVector[0].erase(myCardsVector[0].begin()+randNum); // Removes the element at random index.
-	size = currentSize - 1;
+	size = new PlayingCard[currentSize - 1];
 }
 
 void StandardDeck::Shuffle()
