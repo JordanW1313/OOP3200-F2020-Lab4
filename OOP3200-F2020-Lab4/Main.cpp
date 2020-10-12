@@ -48,6 +48,8 @@ int main()
 	// Show assignment operator working
 	StandardDeck test_deck2;
 	test_deck2 = test_deck1;
+
+	test_deck2.DeckToString();
 }
 
 
