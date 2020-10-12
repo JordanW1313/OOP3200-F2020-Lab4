@@ -12,6 +12,11 @@ StandardDeck::StandardDeck()
 	Initialize();
 }
 
+StandardDeck::~StandardDeck()
+{
+	delete[] myCardsVector;
+}
+
 // Copy constructor implementation.
 StandardDeck::StandardDeck(const StandardDeck& source)
 {
@@ -25,7 +30,7 @@ StandardDeck& StandardDeck::operator=(StandardDeck& source)
 	this->SetVector(source.myCardsVector[0]);
 	this->size = source.size;
 
-	return *this;
+	return (*this);
 }
 
 
@@ -132,13 +137,13 @@ void StandardDeck::DrawNextCard()
 
 	std::cout << "The next card is the " << myCardsVector[0][0].GetRank() << " of " << myCardsVector[0][0].GetSuit() << "." << std::endl;
 
-	assert(!myCardsVector[0].empty());
-	myCardsVector[0].erase(myCardsVector[0].begin());
-	size = currentSize - 1;
 	/*assert(!myCardsVector[0].empty());
 	myCardsVector[0].erase(myCardsVector[0].begin());
-	myCardsVector[0].resize(currentSize - 1);
 	size = currentSize - 1;*/
+	assert(!myCardsVector[0].empty());
+	myCardsVector[0].erase(myCardsVector[0].begin());
+	myCardsVector[0].resize(currentSize - 1);
+	size = currentSize - 1;
 }
 
 // Removes a random object from the array, and shifts the indices of the following objects by 1 to the left.
@@ -150,12 +155,12 @@ void StandardDeck::DrawRandomCard()
 
 	std::cout << "The random card is the " << myCardsVector[0][randNum].GetRank() << " of " << myCardsVector[0][randNum].GetSuit() << "." << std::endl;
 
-	myCardsVector[0].erase(myCardsVector[0].begin()+randNum); // Removes the element at random index.
-	/*assert(!myCardsVector[0].empty());
+	//myCardsVector[0].erase(myCardsVector[0].begin()+randNum); // Removes the element at random index.
+	assert(!myCardsVector[0].empty());
 	myCardsVector[0][randNum] = std::move(myCardsVector[0].front());
 	myCardsVector[0].erase(myCardsVector[0].begin());
 	myCardsVector[0].resize(currentSize - 1);
-	size = currentSize - 1;*/
+	size = currentSize - 1;
 }
 
 void StandardDeck::Shuffle()

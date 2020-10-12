@@ -26,7 +26,7 @@ public:
 	StandardDeck(); // Default constructor
 
 	// Rule of three:
-	~StandardDeck() { delete[] myCardsVector; } // destructor
+	~StandardDeck(); // destructor
 	StandardDeck(const StandardDeck& source); // copy constructor
 	StandardDeck& operator=(StandardDeck& source); // assignment operator
 
